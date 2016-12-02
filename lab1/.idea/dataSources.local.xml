@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="PostgreSQL - postgres@localhost" uuid="5902ccc7-aefc-4616-a812-688df1267bd5">
+      <secret-storage>master_key</secret-storage>
+      <user-name>flystyle</user-name>
+      <introspection-scope>postgres:flystyle,pg_catalog,public</introspection-scope>
+      <resolve-scope>postgres:flystyle,public</resolve-scope>
+    </data-source>
+  </component>
+</project>

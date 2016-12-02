@@ -1,0 +1,13 @@
+name:              Lab2
+version:           1.0
+Build-Type:        Simple
+cabal-version:     >= 1.2
+
+executable Lab2
+  main-is:         Huffman.hs
+  hs-source-dirs:  src
+  build-depends:   base,
+                   bytestring,
+                   containers,
+                   binary,
+                   binary-strict

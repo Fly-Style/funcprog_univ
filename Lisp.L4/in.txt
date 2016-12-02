@@ -1,0 +1,50 @@
+There are five types of schools in the US Are are of of of 
+
+are are are 
+five five 
+ Alaah  ACbar anna all blocc cocccs
+
+
+
+lll
+
+alll
+
+
+
+
+(defparameter lett #\l)
+(defclass word ()	(
+		(data :initarg :data :initform (error "Must supply data"))
+		cntlett
+	)
+)
+(defmethod initialize-instance :after ((w word) &key)			;   подсчитываем количество букв в слове
+	(let ((dat (slot-value w 'data)))
+		(setf (slot-value w 'cntlett) (count lett dat))
+	)
+)
+(defmethod printw ((w word) &key)					;   вывод слова и количества букв в нем
+	(print (slot-value w 'data))
+	(print (slot-value w 'cntlett))
+)
+(defmethod compw ((a word) (b word) &key)				;   компаратор, делаетсравнение слов по количеству букв, возращает тру, если второе «больше», чем первое
+	(let ( 	(worda (slot-value a 'data))
+		(wordb (slot-value b 'data))
+			(cnta (slot-value a 'cntlett))
+			(cntb (slot-value b 'cntlett))
+		)
+		(or
+			(and (= cnta cntb) (string< worda wordb))
+			(< cnta cntb)
+		)
+	)
+)
+
+(defparameter fname "/Users/khomiakoleg/Dropbox/Lisp/in.txt")		
+(setq content (file-string fname))
+(setq lst (remove-if #'(lambda (x) (equal "" x)) (split-sequence-if-not 'alpha-char-p content)))
+(setq lstw (map 'list (lambda (x) (make-instance 'word :data x)) (remove-duplicates lst :test #'equal))) 	  ; заполнение списков словами из файла.
+(setq slst (sort lstw 'compw))						                                        ; сортировка слов при помощи компаратора
+(map nil 'printw slst)
+
